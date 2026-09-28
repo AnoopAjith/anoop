@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Internal CSS Webpage</title>
+    
+    <!-- Internal CSS starts here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c3e50;
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .custom-box {
+            background-color: #ffffff;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+    <!-- Internal CSS ends here -->
+    
+</head>
+<body>
+
+    <h1>Welcome to My Webpage</h1>
+    
+    <div class="custom-box">
+        <p>This paragraph is styled using <strong>Internal CSS</strong>. The background color, text alignment, margins, and borders are all controlled by the style tag in the head section above.</p>
+    </div>
+
+</body>
+</html>
