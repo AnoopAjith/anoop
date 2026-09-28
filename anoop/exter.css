@@ -1,0 +1,10 @@
+h1 {
+    color: navy;
+    border-bottom: 2px solid navy;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 20px;
+    background-color: #ffffff;
+}
