@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>String Functions</title>
+<style>
+body {
+      	background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+h1 {
+     color: darkblue;
+    }
+table {
+       margin: 15px;
+       border-collapse: collapse;
+       padding: 10px;
+       }
+td {
+     padding: 10px;
+   }
+     input, button {
+     padding: 8px;
+   }
+     button {
+     background-color: darkcyan;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+     button:hover {
+     background-color: teal;
+   }
+</style>
+</head>
+<body>
+<center>
+<h1>STRING FUNCTIONS</h1>
+<!-- Input Table -->
+<table style="background-color: cadetblue;">
+<tr>
+<td>Enter the string</td>
+<td><input type="text" id="in1"></td>
+</tr>
+<tr>
+<td>Search the string</td>
+<td><input type="text" id="in2"></td>
+</tr>
+<tr>
+<td>Slice the string</td>
+<td><input type="number" id="in3" placeholder="start">
+<input type="number" id="in4" placeholder="stop"></td>
+</tr>
+<tr>
+<td>Enter substring to replace</td>
+<td><input type="text" id="in5"></td>
+</tr>
+<tr>
+<td>Enter string to replace with</td>
+<td><input type="text" id="in9"></td>
+</tr>
+<tr>
+<td>Enter a string to concatenate</td>
+<td><input type="text" id="in7"></td>
+</tr>
+<tr>
+<td>Enter a string to pad</td>
+<td><input type="text" id="in8"></td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<button type="button" onclick="displayResults()">SUBMIT</button>
+</td>
+</tr>
+</table>
+<!-- Output Table -->
+<table align="center" width="60%" style="background-color: beige;">
+<tr>
+<td>Length of string:</td>
+<td><span id="out1"></span></td>
+</tr>
+<tr>
+<td>Index of search string:</td>
+<td><span id="out2"></span></td>
+</tr>
+<tr>
+<td>Sliced string:</td>
+<td><span id="out3"></span></td>
+</tr>
+<tr>
+<td>Substring (substr):</td>
+<td><span id="out4"></span></td>
+</tr>
+<tr>
+<td>Replaced string:</td>
+<td><span id="out5"></span></td>
+</tr>
+<tr>
+<td>Uppercase:</td>
+<td><span id="out6"></span></td>
+</tr>
+<tr>
+<td>Lowercase:</td>
+<td><span id="out7"></span></td>
+</tr>
+<tr>
+<td>Concatenated string:</td>
+<td><span id="out8"></span></td>
+</tr>
+<tr>
+<td>Padding at beginning:</td>
+<td><span id="out9"></span></td>
+</tr>
+<tr>
+<td>Padding at end:</td>
+<td><span id="out10"></span></td>
+</tr>
+<tr>
+<td>Substring (substring):</td>
+<td><span id="out11"></span></td>
+</tr>
+</table>
+</center>
+<script>
+function displayResults() 
+{
+// Get input values
+var in1 = document.getElementById("in1").value;
+var in2 = document.getElementById("in2").value;
+var in3 = Number(document.getElementById("in3").value);
+var in4 = Number(document.getElementById("in4").value);
+var in5 = document.getElementById("in5").value;
+var in9 = document.getElementById("in9").value;
+var in7 = document.getElementById("in7").value;
+var in8 = document.getElementById("in8").value;
+// Perform string operations
+document.getElementById("out1").innerHTML = in1.length;
+document.getElementById("out2").innerHTML = in1.indexOf(in2);
+document.getElementById("out3").innerHTML = in1.slice(in3, in4);
+document.getElementById("out4").innerHTML = in1.substr(in3, in4);  // start, length
+document.getElementById("out5").innerHTML = in1.replace(in5, in9);
+document.getElementById("out6").innerHTML = in1.toUpperCase();
+document.getElementById("out7").innerHTML = in1.toLowerCase();
+document.getElementById("out8").innerHTML = in1.concat(in7);
+document.getElementById("out9").innerHTML = in1.padStart(30, in8);
+document.getElementById("out10").innerHTML = in1.padEnd(30, in8);
+document.getElementById("out11").innerHTML = in1.substring(in3, in4);
+}
+</script>
+</body>
+</html>
