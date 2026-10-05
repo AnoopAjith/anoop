@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Exam</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .exam {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        #timer {
+            text-align: right;
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .question {
+            margin: 25px 0;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="exam">
+
+    <h1>Online Exam</h1>
+
+    <div id="timer">Time: 60 seconds</div>
+
+    <form id="examForm">
+
+        <div class="question">
+            <p>1. What does HTML stand for?</p>
+
+            <input type="radio" name="q1" value="a">
+            Hyper Text Markup Language<br>
+
+            <input type="radio" name="q1" value="b">
+            High Text Machine Language<br>
+
+            <input type="radio" name="q1" value="c">
+            Hyper Tool Multi Language<br>
+        </div>
+
+        <div class="question">
+            <p>2. Which language is used to make a webpage interactive?</p>
+
+            <input type="radio" name="q2" value="a">
+            HTML<br>
+
+            <input type="radio" name="q2" value="b">
+            JavaScript<br>
+
+            <input type="radio" name="q2" value="c">
+            CSS<br>
+        </div>
+
+        <div class="question">
+            <p>3. Which symbol is used for comments in JavaScript?</p>
+
+            <input type="radio" name="q3" value="a">
+            // <br>
+
+            <input type="radio" name="q3" value="b">
+            ## <br>
+
+            <input type="radio" name="q3" value="c">
+            <!-- -->+<br>
+        </div>
+
+        <br>
+
+        <button type="button" onclick="submitExam()">
+            Submit Exam
+        </button>
+
+    </form>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+    // Correct answers
+    const answers = {
+        q1: "a",
+        q2: "b",
+        q3: "a"
+    };
+
+    let timeLeft = 60;
+
+    // Timer
+    const timer = setInterval(function () {
+
+        document.getElementById("timer").innerHTML =
+            "Time: " + timeLeft + " seconds";
+
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timer);
+
+            alert("Time is over!");
+
+            submitExam();
+        }
+
+    }, 1000);
+
+
+    // Submit exam
+    function submitExam() {
+
+        clearInterval(timer);
+
+        let score = 0;
+
+        // Check answers
+        for (let question in answers) {
+
+            let selected = document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+            if (selected && selected.value === answers[question]) {
+                score++;
+            }
+        }
+
+        // Display result
+        document.getElementById("result").innerHTML =
+            "Your Score: " + score + " / " +
+            Object.keys(answers).length;
+
+        // Disable all options
+        let inputs = document.querySelectorAll("input");
+
+        inputs.forEach(function(input) {
+            input.disabled = true;
+        });
+    }
+
+</script>
+
+</body>
+</html>
